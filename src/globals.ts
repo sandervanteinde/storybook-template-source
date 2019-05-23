@@ -1,0 +1,1 @@
+export const SET_TEMPLATE: string = 'storybook-template-source/setTemplate';

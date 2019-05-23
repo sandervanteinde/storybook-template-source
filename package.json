@@ -1,0 +1,30 @@
+{
+    "name": "storybook-template-source",
+    "version": "1.0.3",
+    "description": "Provides an addon for storybook that can display your template as source in a seperate tab",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "prepare": "rimraf ./dist && npm run build",
+        "build": "tsc"
+    },
+    "author": "Sander van 't Einde",
+    "license": "ISC",
+    "dependencies": {
+        "react-syntax-highlighter": "^10.3.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.4.5",
+        "@babel/preset-react": "^7.0.0",
+        "@storybook/html": "5.0.11",
+        "@types/react": "^16.8.18",
+        "@types/react-syntax-highlighter": "^10.2.0",
+        "@types/storybook__html": "^5.0.0",
+        "babel-loader": "8.0.6",
+        "rimraf": "^2.6.3",
+        "typescript": "^3.4.5"
+    }
+}
