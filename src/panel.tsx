@@ -5,7 +5,10 @@ import { docco } from 'react-syntax-highlighter/dist/styles/hljs';
 import React = require('react');
 
 export default class StorybookTemplateSourcePanel extends React.Component<{ api: any, active: boolean }> {
-    state = { template: '' };
+    state = {
+        template: '',
+        showingButton: false
+    };
 
     buttonStyle = {
         color: '#1EA7FD',
@@ -33,26 +36,42 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
      *
      * @param {string} template
      */
-    onSetTemplate(template: string): void {
+    onSetTemplate = (template: string) => {
         this.setState({ template });
         this.state.template = template;
     }
 
-    onStoryRender(): void {
-        this.setState({ template: '' });
+    onStoryRender = () => {
+        this.setState({ template: '', showingButton: false });
     }
 
     setTemplateOnClipboard = () => {
         (navigator as any).clipboard.writeText(this.state.template);
-        alert('copied!');
+        this.setState({ showingButton: true });
+        setTimeout(() => this.setState({ showingButton: false }), 5000);
+    }
+
+    ShowThatICopied = () => {
+        if (this.state.showingButton) {
+            return <span>Copied!</span>
+        }
+        return null;
+    }
+    ShowCopyButton = () => {
+        if (this.state.template) {
+            const { template } = this.state;
+            return <div><button style={this.buttonStyle} onClick={this.setTemplateOnClipboard}>Copy to clipboard</button>
+            <SyntaxHighlighter language='html' showLineNumbers={true} style={docco}>{template}</SyntaxHighlighter>
+            </div>
+        }
+        return <span>No template found. Did you invoke `withTemplateSource`?</span>;
     }
 
     render() {
-        const { template } = this.state;
         const { active } = this.props;
         return !active ? null : <div>
-            <button style={this.buttonStyle} onClick={this.setTemplateOnClipboard}>Copy to clipboard</button>
-            <SyntaxHighlighter language='html' style={docco}>{template}</SyntaxHighlighter>
+            <this.ShowCopyButton />
+            <this.ShowThatICopied />
         </div>;
     }
 }

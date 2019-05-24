@@ -18,4 +18,16 @@ storiesOf('Test Stories', module)
         Awesomeness
     </body>
     
-    </html>`));
+    </html>`))
+    .add('Angular template', () => withTemplateSource(`
+    <form [formGroup]="form" style="width: 500px">
+        <rosa-form-group>
+            <label *ngIf="label" rosaFormLabel>{{label}}</label>
+            <rosa-input [readonly]="isReadonly" formControlName="test" placeholder="This input requires 5 characters">
+                <i *ngIf="showIcon" rosaInputIcon class="icon-briefcase"></i>
+                <span [rosaInputAddonLabel]="labelsFullCaps ? 'FullCaps' : 'Default'" *ngFor="let label of labels">{{label}}</span>
+            </rosa-input>
+            <p rosaValidationMessage *ngFor="let validationMessage of validationMessages">{{validationMessage}}</p>
+        </rosa-form-group>
+    </form>
+    `))
