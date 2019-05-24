@@ -8,3 +8,18 @@ Install from NPM using thse command
 storiesOf('Test Stories', module)
     .add('With template', () => withTemplateSource('<h1>Hello World</h1>'))
 ```
+
+# Settings
+You can provide an optional second object to ` withTemplateSource` to control the behavior. This can be one, any or all of the options below.
+
+```typescript
+{
+    pretty: boolean = true; // Pretty prints the HTML output. Defaults to true
+}
+``` 
+
+**Example without pretty print:**
+```typescript
+storiesOf('Test Stories', module)
+    .add('With template', () => withTemplateSource('<h1>Hello World</h1>', { pretty: false }))
+```

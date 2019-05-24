@@ -3,11 +3,14 @@ import { SET_TEMPLATE } from './globals';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/styles/hljs';
 import React = require('react');
+import pretty = require('pretty');
+import { TemplateSourceOptions } from 'template-source-options';
 
 export default class StorybookTemplateSourcePanel extends React.Component<{ api: any, active: boolean }> {
     state = {
         template: '',
-        showingButton: false
+        showingButton: false,
+        pretty: true
     };
 
     buttonStyle = {
@@ -36,8 +39,8 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
      *
      * @param {string} template
      */
-    onSetTemplate = (template: string) => {
-        this.setState({ template });
+    onSetTemplate = (template: string, options: TemplateSourceOptions) => {
+        this.setState({ template, ...options });
         this.state.template = template;
     }
 
@@ -59,9 +62,10 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
     }
     ShowCopyButton = () => {
         if (this.state.template) {
-            const { template } = this.state;
+            debugger;
+            const template = this.state.pretty ? pretty(this.state.template, { ocd: true }) : this.state.template;
             return <div><button style={this.buttonStyle} onClick={this.setTemplateOnClipboard}>Copy to clipboard</button>
-            <SyntaxHighlighter language='html' showLineNumbers={true} style={docco}>{template}</SyntaxHighlighter>
+                <SyntaxHighlighter language='html' showLineNumbers={true} style={docco}>{template}</SyntaxHighlighter>
             </div>
         }
         return <span>No template found. Did you invoke `withTemplateSource`?</span>;
