@@ -9,8 +9,7 @@ import { TemplateSourceOptions } from 'template-source-options';
 export default class StorybookTemplateSourcePanel extends React.Component<{ api: any, active: boolean }> {
     state = {
         template: '',
-        showingButton: false,
-        pretty: true
+        showingButton: false
     };
 
     buttonStyle = {
@@ -40,8 +39,7 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
      * @param {string} template
      */
     onSetTemplate = (template: string, options: TemplateSourceOptions) => {
-        this.setState({ template, ...options });
-        this.state.template = template;
+        this.setState({ template: options.pretty ? pretty(template) : template });
     }
 
     onStoryRender = () => {
@@ -60,11 +58,11 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
         }
         return null;
     }
-    ShowCopyButton = () => {
+    ShowSource = () => {
         if (this.state.template) {
-            debugger;
-            const template = this.state.pretty ? pretty(this.state.template, { ocd: true }) : this.state.template;
+            const { template } = this.state;
             return <div><button style={this.buttonStyle} onClick={this.setTemplateOnClipboard}>Copy to clipboard</button>
+                <this.ShowThatICopied />
                 <SyntaxHighlighter language='html' showLineNumbers={true} style={docco}>{template}</SyntaxHighlighter>
             </div>
         }
@@ -73,9 +71,6 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
 
     render() {
         const { active } = this.props;
-        return !active ? null : <div>
-            <this.ShowCopyButton />
-            <this.ShowThatICopied />
-        </div>;
+        return !active ? null : <this.ShowSource />
     }
 }

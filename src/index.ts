@@ -8,7 +8,6 @@ const Default: TemplateSourceOptions = {
 };
 
 export function withTemplateSource(source: string, options: Partial<TemplateSourceOptions> = Default): string {
-    debugger;
     if(options !== Default){
         for(let key in Default){
             if(!options.hasOwnProperty(key) && Default.hasOwnProperty(key)){
