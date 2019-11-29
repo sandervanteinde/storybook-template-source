@@ -1,37 +1,37 @@
 {
-    "name": "storybook-template-source",
-    "version": "1.0.6",
-    "description": "Provides an addon for storybook that can display your template as source in a seperate tab",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "storybook": "npm run prepare && start-storybook -p 6006",
-        "build-storybook": "build-storybook",
-        "prepare": "rimraf ./dist && npm run build",
-        "build": "tsc"
-    },
-    "author": "Sander van 't Einde",
-    "license": "ISC",
-    "dependencies": {
-        "pretty": "^2.0.0",
-        "react-syntax-highlighter": "^10.3.0"
-    },
-    "devDependencies": {
-        "@babel/core": "7.4.5",
-        "@babel/plugin-transform-modules-commonjs": "^7.4.4",
-        "@babel/preset-react": "^7.0.0",
-        "@storybook/html": "5.0.11",
-        "@types/pretty": "^2.0.0",
-        "@types/react": "^16.8.18",
-        "@types/react-syntax-highlighter": "^10.2.0",
-        "@types/storybook__html": "^5.0.0",
-        "babel-loader": "8.0.6",
-        "rimraf": "^2.6.3",
-        "typescript": "^3.4.5"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/sandervanteinde/storybook-template-source"
-    }
+  "name": "storybook-template-source",
+  "version": "1.0.7",
+  "description": "Provides an addon for storybook that can display your template as source in a seperate tab",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "npm run prepare && start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepare": "rimraf ./dist && npm run build",
+    "build": "tsc"
+  },
+  "author": "Sander van 't Einde",
+  "license": "ISC",
+  "dependencies": {
+    "pretty": "^2.0.0",
+    "react-syntax-highlighter": "^10.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/html": "5.0.11",
+    "@types/pretty": "^2.0.0",
+    "@types/react": "^16.8.18",
+    "@types/react-syntax-highlighter": "^10.2.0",
+    "@types/storybook__html": "^5.0.0",
+    "babel-loader": "8.0.6",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandervanteinde/storybook-template-source"
+  }
 }
