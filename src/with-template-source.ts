@@ -1,7 +1,7 @@
 import addons from '@storybook/addons';
 import { SET_TEMPLATE } from './globals';
 import Channel from '@storybook/channels';
-import { TemplateSourceOptions } from 'template-source-options';
+import { TemplateSourceOptions } from './template-source-options';
 
 const Default: TemplateSourceOptions = {
   pretty: true
