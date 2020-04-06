@@ -1,6 +1,6 @@
 {
   "name": "storybook-template-source",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Provides an addon for storybook that can display your template as source in a seperate tab",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
