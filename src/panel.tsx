@@ -63,7 +63,7 @@ export default class StorybookTemplateSourcePanel extends React.Component<{ api:
             const { template } = this.state;
             return <div><button style={this.buttonStyle} onClick={this.setTemplateOnClipboard}>Copy to clipboard</button>
                 <this.ShowThatICopied />
-                <SyntaxHighlighter language='html' showLineNumbers={true} style={docco}>{template}</SyntaxHighlighter>
+                <SyntaxHighlighter language='html' showLineNumbers={true} showInlineNumbers={true} wrapLines={true} style={docco}>{template}</SyntaxHighlighter>
             </div>
         }
         return <span>No template found. Did you invoke `withTemplateSource`?</span>;

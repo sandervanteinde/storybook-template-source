@@ -1,7 +1,5 @@
 import React = require('react');
-import { STORY_RENDER } from '@storybook/core-events';
 import addons, { types } from '@storybook/addons';
-import { SET_TEMPLATE } from './globals';
 import StorybookTemplateSourcePanel from './panel';
 
 const ADDON_ID = 'storybook-template-source';

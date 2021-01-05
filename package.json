@@ -15,13 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "pretty": "^2.0.0",
-    "react-syntax-highlighter": "^10.3.5"
+    "react-syntax-highlighter": "^15.4.3"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
-    "@storybook/html": "^5.3.18",
+    "@storybook/html": "^6.1.11",
     "@types/pretty": "^2.0.0",
     "@types/react": "^16.9.32",
     "@types/react-syntax-highlighter": "^10.2.1",
